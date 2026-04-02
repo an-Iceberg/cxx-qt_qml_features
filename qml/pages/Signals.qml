@@ -1,12 +1,9 @@
-// SPDX-FileCopyrightText: 2022 Klarälvdalens Datakonsult AB, a KDAB Group company <info@kdab.com>
-// SPDX-FileContributor: Andrew Hayzen <andrew.hayzen@kdab.com>
-//
-// SPDX-License-Identifier: MIT OR Apache-2.0
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
+import QtQuick.Window 2.12
 
-import com.kdab.cxx_qt.demo 1.0
+import qml_features 1.0
 
 Page {
     id: root
@@ -15,17 +12,23 @@ Page {
             anchors.fill: parent
 
             ToolButton {
-                enabled: root.rustProperties.connected
                 text: qsTr("Disconnect")
 
-                onClicked: root.rustProperties.connectedUrl = undefined
+                onClicked: root.rustSignals.disconnect()
             }
 
             ToolButton {
-                enabled: !root.rustProperties.connected
                 text: qsTr("Connect")
 
-                onClicked: root.rustProperties.connectedUrl = urlTextField.text
+                onClicked: root.rustSignals.connect(urlTextField.text)
+            }
+
+            ToolButton {
+                checkable: true
+                checked: root.rustSignals.logging_enabled
+                text: qsTr("Toggle Logging")
+
+                onClicked: root.rustSignals.logging_enabled = !root.rustSignals.logging_enabled
             }
 
             Item {
@@ -34,7 +37,18 @@ Page {
         }
     }
 
-    readonly property RustProperties rustProperties: RustProperties {
+    readonly property RustSignals rustSignals: RustSignals {
+        onConnected: url => {
+            statusLabel.text = qsTr("Connected: %1").arg(url);
+        }
+
+        onDisconnected: {
+            statusLabel.text = qsTr("Disconnected");
+        }
+
+        onError: message => {
+            statusLabel.text = qsTr("Error: %1").arg(message);
+        }
     }
 
     ColumnLayout {
@@ -45,7 +59,7 @@ Page {
         Label {
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
-            text: qsTr("Properties can be used from Rust to indicate state to QML as normal.")
+            text: qsTr("Signals can be used from Rust to indicate state changes to QML as normal.")
             wrapMode: Text.Wrap
         }
 
@@ -67,7 +81,6 @@ Page {
             id: statusLabel
             Layout.fillWidth: true
             horizontalAlignment: Text.AlignHCenter
-            text: root.rustProperties.connected ? qsTr("%1: %2").arg(root.rustProperties.statusMessage).arg(root.rustProperties.connectedUrl) : root.rustProperties.statusMessage
             wrapMode: Text.Wrap
         }
     }

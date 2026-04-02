@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Klarälvdalens Datakonsult AB, a KDAB Group company <info@kdab.com>
-// SPDX-FileContributor: Andrew Hayzen <andrew.hayzen@kdab.com>
-// SPDX-FileContributor: Gerhard de Clercq <gerhard.declercq@kdab.com>
-//
-// SPDX-License-Identifier: MIT OR Apache-2.0
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
@@ -70,59 +65,59 @@ ApplicationWindow {
             model: ListModel {
                 ListElement {
                     name: "Properties"
-                    source: "pages/PropertiesPage.qml"
+                    source: "pages/Properties.qml"
                 }
                 ListElement {
                     name: "Invokables"
-                    source: "pages/InvokablesPage.qml"
+                    source: "pages/Invokables.qml"
                 }
                 ListElement {
                     name: "Signals"
-                    source: "pages/SignalsPage.qml"
+                    source: "pages/Signals.qml"
                 }
                 ListElement {
                     name: "Threading"
-                    source: "pages/ThreadingPage.qml"
+                    source: "pages/Threading.qml"
                 }
                 ListElement {
                     name: "Custom Base Class"
-                    source: "pages/CustomBaseClassPage.qml"
+                    source: "pages/CustomBaseClass.qml"
                 }
                 ListElement {
                     name: "Serialisation"
-                    source: "pages/SerialisationPage.qml"
+                    source: "pages/Serialisation.qml"
                 }
                 ListElement {
                     name: "Types"
-                    source: "pages/TypesPage.qml"
+                    source: "pages/Types.qml"
                 }
                 ListElement {
                     name: "Containers"
-                    source: "pages/ContainersPage.qml"
+                    source: "pages/Containers.qml"
                 }
                 ListElement {
                     name: "Multiple QObjects"
-                    source: "pages/MultipleQObjectsPage.qml"
+                    source: "pages/MultipleQObjects.qml"
                 }
                 ListElement {
                     name: "Naming"
-                    source: "pages/NamingPage.qml"
+                    source: "pages/Naming.qml"
                 }
                 ListElement {
                     name: "Nested QObjects"
-                    source: "pages/NestedQObjectsPage.qml"
+                    source: "pages/NestedQObjects.qml"
                 }
                 ListElement {
                     name: "Singleton"
-                    source: "pages/SingletonPage.qml"
+                    source: "pages/Singleton.qml"
                 }
                 ListElement {
                     name: "Custom Parent Class"
-                    source: "pages/CustomParentClassPage.qml"
+                    source: "pages/CustomParentClass.qml"
                 }
                 ListElement {
                     name: "ExternCxxQt"
-                    source: "pages/ExternCxxQtPage.qml"
+                    source: "pages/ExternCxxQt.qml"
                 }
             }
         }

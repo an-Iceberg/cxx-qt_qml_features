@@ -2,12 +2,42 @@ use cxx_qt_build::{CxxQtBuilder, QmlModule};
 
 fn main()
 {
-  CxxQtBuilder::new_qml_module(QmlModule::new("qml_features")
-    .qml_file("qml/Main.qml"))
+  CxxQtBuilder::new_qml_module(
+    QmlModule::new("qml_features")
+      .qml_files([
+        "qml/Main.qml",
+        "qml/pages/Containers.qml",
+        "qml/pages/CustomBaseClass.qml",
+        "qml/pages/CustomParentClass.qml",
+        "qml/pages/ExternCxxQt.qml",
+        "qml/pages/Invokables.qml",
+        "qml/pages/MultipleQObjects.qml",
+        "qml/pages/Naming.qml",
+        "qml/pages/NestedQObjects.qml",
+        "qml/pages/Properties.qml",
+        "qml/pages/Serialization.qml",
+        "qml/pages/Signals.qml",
+        "qml/pages/Singleton.qml",
+        "qml/pages/Threading.qml",
+        "qml/pages/Types.qml",
+      ])
+      .depend("QtQuick")
+  )
     .qt_module("Network")
-    .files(
-    [
-      "src/properties.rs",
+    // .files(
+    // [
+    //   "src/containers.rs",
+    //   "src/invokables.rs",
+    //   "src/main.rs",
+    //   "src/naming.rs",
+    //   "src/properties.rs",
+    //   "src/signals.rs",
+    //   "src/singleton.rs",
+    // ])
+    .qt_module("Quick")
+    .qrc("qml/images/images.qrc")
+    .qrc_resources([
+      "qml/images/red.png",
     ])
     .build();
 }

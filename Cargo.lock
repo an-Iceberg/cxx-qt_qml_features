@@ -211,7 +211,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "cxx-qt_properties"
+name = "cxx-qt_qml_features"
 version = "0.1.0"
 dependencies = [
  "cxx",

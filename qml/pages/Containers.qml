@@ -6,7 +6,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 
-import com.kdab.cxx_qt.demo 1.0
+import qml_features 1.0
 
 Page {
     id: root
