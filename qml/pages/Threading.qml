@@ -4,50 +4,56 @@ import QtQuick.Layouts 1.12
 
 import qml_features 1.0
 
-Page {
-    id: root
-    header: ToolBar {
-        RowLayout {
-            anchors.fill: parent
+Page
+{
+  id: root
 
-            ToolButton {
-                text: qsTr("Change Url")
+  header: ToolBar
+  {
+    RowLayout
+    {
+      anchors.fill: parent
 
-                onClicked: root.website.changeUrl()
-            }
+      ToolButton
+      {
+        text: qsTr("Change Url")
 
-            ToolButton {
-                text: qsTr("Fetch Title")
+        onClicked: root.website.changeUrl()
+      }
 
-                onClicked: root.website.fetchTitle()
-            }
+      ToolButton
+      {
+        text: qsTr("Fetch Title")
 
-            Item {
-                Layout.fillWidth: true
-            }
-        }
+        onClicked: root.website.fetchTitle()
+      }
+
+      Item { Layout.fillWidth: true }
+    }
+  }
+
+  readonly property ThreadingWebsite website: ThreadingWebsite {}
+
+  ColumnLayout
+  {
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.verticalCenter: parent.verticalCenter
+
+    Label
+    {
+      horizontalAlignment: Text.AlignHCenter
+      Layout.fillWidth: true
+      text: qsTr("Url: %1").arg(root.website.url)
+      wrapMode: Text.Wrap
     }
 
-    readonly property ThreadingWebsite website: ThreadingWebsite {
+    Label
+    {
+      horizontalAlignment: Text.AlignHCenter
+      Layout.fillWidth: true
+      text: qsTr("Title: %1").arg(root.website.title)
+      wrapMode: Text.Wrap
     }
-
-    ColumnLayout {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
-
-        Label {
-            horizontalAlignment: Text.AlignHCenter
-            Layout.fillWidth: true
-            text: qsTr("Url: %1").arg(root.website.url)
-            wrapMode: Text.Wrap
-        }
-
-        Label {
-            horizontalAlignment: Text.AlignHCenter
-            Layout.fillWidth: true
-            text: qsTr("Title: %1").arg(root.website.title)
-            wrapMode: Text.Wrap
-        }
-    }
+  }
 }

@@ -4,51 +4,59 @@ import QtQuick.Layouts 1.12
 
 import qml_features 1.0
 
-Page {
-    id: root
-    header: ToolBar {
-        RowLayout {
-            anchors.fill: parent
+Page
+{
+  id: root
 
-            ToolButton {
-                text: qsTr("Increment")
+  header: ToolBar
+  {
+    RowLayout
+    {
+      anchors.fill: parent
 
-                onClicked: root.outerObject.inner.counter += 1
-            }
+      ToolButton
+      {
+        text: qsTr("Increment")
+
+        onClicked: root.outerObject.inner.counter += 1
+      }
 
 
-            ToolButton {
-                text: qsTr("Reset")
+      ToolButton
+      {
+        text: qsTr("Reset")
 
-                onClicked: root.outerObject.reset()
-            }
+        onClicked: root.outerObject.reset()
+      }
 
-            ToolButton {
-                text: qsTr("Print")
+      ToolButton
+      {
+        text: qsTr("Print")
 
-                onClicked: root.outerObject.printCount(root.innerObject)
-            }
+        onClicked: root.outerObject.printCount(root.innerObject)
+      }
 
-            Item {
-                Layout.fillWidth: true
-            }
-        }
+      Item { Layout.fillWidth: true }
     }
+  }
 
-    readonly property InnerObject innerObject: InnerObject {
-        counter: 10
+  readonly property InnerObject innerObject: InnerObject
+  {
+    counter: 10
 
-        onCalled: () => console.warn("Inner signal called")
-    }
+    onCalled: () => console.warn("Inner signal called")
+  }
 
-    readonly property OuterObject outerObject: OuterObject {
-        inner: root.innerObject
+  readonly property OuterObject outerObject: OuterObject
+  {
+    inner: root.innerObject
 
-        onCalled: (inner) => console.warn("Signal called, inner value: ", inner.counter)
-    }
+    onCalled: (inner) => console.warn("Signal called, inner value: ", inner.counter)
+  }
 
-    Label {
-        anchors.centerIn: parent
-        text: root.innerObject.counter
-    }
+  Label
+  {
+    anchors.centerIn: parent
+    text: root.innerObject.counter
+  }
 }
