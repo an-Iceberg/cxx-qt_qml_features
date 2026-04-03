@@ -3,6 +3,8 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Window 2.12
 
+import qml_features 1.0
+
 ApplicationWindow {
     id: window
     minimumHeight: 480
@@ -84,8 +86,8 @@ ApplicationWindow {
                     source: "pages/CustomBaseClass.qml"
                 }
                 ListElement {
-                    name: "Serialisation"
-                    source: "pages/Serialisation.qml"
+                    name: "Serialization"
+                    source: "pages/Serialization.qml"
                 }
                 ListElement {
                     name: "Types"

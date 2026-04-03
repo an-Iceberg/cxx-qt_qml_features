@@ -24,16 +24,15 @@ fn main()
       .depend("QtQuick")
   )
     .qt_module("Network")
-    // .files(
-    // [
-    //   "src/containers.rs",
-    //   "src/invokables.rs",
-    //   "src/main.rs",
-    //   "src/naming.rs",
-    //   "src/properties.rs",
-    //   "src/signals.rs",
-    //   "src/singleton.rs",
-    // ])
+    .files(
+    [
+      "src/containers.rs",
+      "src/invokables.rs",
+      "src/naming.rs",
+      "src/properties.rs",
+      "src/signals.rs",
+      "src/singleton.rs",
+    ])
     .qt_module("Quick")
     .qrc("qml/images/images.qrc")
     .qrc_resources([
