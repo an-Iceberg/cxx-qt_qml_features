@@ -32,6 +32,7 @@ fn main()
       "src/properties.rs",
       "src/signals.rs",
       "src/singleton.rs",
+      "src/threading.rs",
     ])
     .qt_module("Quick")
     .qrc("qml/images/images.qrc")

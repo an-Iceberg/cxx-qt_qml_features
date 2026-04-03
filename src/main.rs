@@ -1,11 +1,12 @@
 #![allow(clippy::needless_return)]
 
-pub mod properties;
 pub mod containers;
 pub mod invokables;
 pub mod naming;
+pub mod properties;
 pub mod signals;
 pub mod singleton;
+pub mod threading;
 
 use cxx_qt_lib::{QGuiApplication, QQmlApplicationEngine, QUrl};
 
