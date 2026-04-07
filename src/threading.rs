@@ -93,15 +93,15 @@ impl qobject::ThreadingWebsite
   {
     // Check that we aren't already retrieving a title
     if self
-        .rust()
-        .loading
-        .compare_exchange(
-          false,
-          true,
-          std::sync::atomic::Ordering::SeqCst,
-          std::sync::atomic::Ordering::SeqCst,
-        )
-        .is_err()
+      .rust()
+      .loading
+      .compare_exchange(
+        false,
+        true,
+        std::sync::atomic::Ordering::SeqCst,
+        std::sync::atomic::Ordering::SeqCst,
+      )
+      .is_err()
     {
       println!("Already fetching a title.");
       return;
